@@ -1,0 +1,13 @@
+c1789fe2be5aba1c9554b12738b73554 *DESCRIPTION
+1c08e10838b7532ec89289fb8f0a7654 *NAMESPACE
+120bb3d6db016ec84330a898c0567e35 *R/EPT1d.R
+47c672997b6beeab63602858579f6c0a *data/LOD.rda
+ddeb5b3c8c42569571a7230e1c134949 *data/SolarRadiation.rda
+630e2c53074f238056d4789baab86321 *man/LOD.Rd
+dd293e63767e999fdb0400710b5cb5bb *man/SolarRadiation.Rd
+da6a9c7f1657d9f46b46e09c0980e948 *man/eptdecomp.Rd
+0b497b262502ef3d3ffe4f3936a6b3fc *man/eptmap.Rd
+e72951e4b655e5ca748b9a3ecc4b374d *man/eptplot.Rd
+4ac14f3afce4cb2e38fc06914a537082 *man/eptransf.Rd
+8339e990e20d0777d2fe279a2cbde5da *man/localextrema.Rd
+9dd8b65be70a461a294019ae745f8d89 *man/meptransf.Rd
