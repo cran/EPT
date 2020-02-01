@@ -1,8 +1,8 @@
 \name{eptransf}
 \alias{eptransf}
-\title{Ensemble Patch Transform}
+\title{Ensemble Patch Transform of a Signal}
 \description{
-This function performs ensemble patch transform for a size parameter.
+This function performs ensemble patch transform of a signal for a size parameter.
 }
 \usage{
 eptransf(tindex = NULL, signal, type = "rectangle", tau,
@@ -10,46 +10,46 @@ eptransf(tindex = NULL, signal, type = "rectangle", tau,
     gamma = 1, boundary = "symmetric") 
 }
 \arguments{
-\item{tindex}{time index at which a signal is observed. When it is \code{NULL}, signal is supposed to be equally spaced.}
-\item{signal}{signal or observation observed at time \code{tindex}.}
+\item{tindex}{time index at which a signal is observed. When it is \code{NULL}, the signal is supposed to be equally spaced.}
+\item{signal}{a set of data or a signal observed at time \code{tindex}.}
 \item{type}{patch type of \code{"rectangle"} or \code{"oval"}.}
-\item{tau}{a size parameter for ensemble patch transform.}
-\item{process}{specifies transform types for patch and ensemble process,
-           with \code{process[1]} for patch process and process[2] for ensemble process.
+\item{tau}{size parameter for ensemble patch transform.}
+\item{process}{specifies transform types for patch and ensemble processes:
+           \code{process[1]} for patch process and process[2] for ensemble process.
            Each process has options of \code{"average"}, \code{"median"}, or \code{"envelope"}.
            Note that when \code{process[1]} is \code{"average"} or \code{"median"}, \code{process[2]} must be \code{"average"} or \code{"median"}. 
-           When \code{process[1]} is \code{"envelope"}, lower and upper envelope is obtained by \eqn{\code{pquantile[1]} \times 100 \%}-quantile 
-           and \eqn{\code{pquantile[2]} \times 100 \%}-quantile of a patch, respectively.
-           When \code{process[2]} is \code{"envelope"}, ensemble transform of lower and upper envelope is obtained as 
+           When \code{process[1]} is \code{"envelope"}, lower and upper envelopes are obtained by \eqn{\code{pquantile[1]} \times 100 \%}-quantile 
+           and \eqn{\code{pquantile[2]} \times 100 \%}-quantile of patches, respectively.
+           When \code{process[2]} is \code{"envelope"}, ensemble lower and upper envelopes are obtained as 
            \eqn{\code{equantile[1]} \times 100 \%}-quantile and \eqn{\code{equantile[2]} \times 100 \%}-quantile  
-           of lower and upper envelope, respectively.}
+           of lower and upper envelopes of shifted patches, respectively.}
 \item{pquantile}{quantiles for lower and upper envelopes of patch transform. When it is \code{c(0, 1)},
    minimum and maximum of a patch are used for lower and upper envelopes, respectively.}
-\item{equantile}{quantiles for ensemble transform of lower and upper envelope.}            
-\item{gamma}{controls amount of envelope magnitude.}
+\item{equantile}{quantiles for lower and upper envelopes of ensemble patch transform.}            
+\item{gamma}{controls the amount of envelope magnitude.}
 \item{boundary}{specifies boundary condition from \code{"symmetric"}, \code{"periodic"} or \code{"none"}.}
 }
 \details{
-This function performs ensemble patch transform for a size parameter \code{tau}, and 
+This function performs ensemble patch transform of a signal for a size parameter \code{tau}, and 
 produces statistics and envelopes for ensemble patch transform.
 When \code{process[1]} is \code{"average"} or \code{"median"}, outputs related to envelopes are defined as \code{NULL}.
 When \code{process[2]} is \code{"envelope"}, outputs, \code{pstat} and \code{Epstat}, are defined as \code{NULL}.
 }
 \value{ 
 \item{tindex}{time index at which a signal is observed.}
-\item{signal}{signal or observation observed at time \code{tindex}.}
-\item{pstat}{centrality of patch transform for a size parameter \code{tau}.}
-\item{Epstat}{centrality of ensemble patch transform for a size parameter \code{tau}.}
-\item{psd}{standard deviation of patch transform for a size parameter \code{tau}.}
-\item{Epsd}{ensemble average standard deviation of patch transform for a size parameter \code{tau}.}
-\item{pL}{lower envelope of patch transform for a size parameter \code{tau}.}
-\item{pU}{upper envelope of patch transform for a size parameter \code{tau}.}
-\item{pM}{mean envelope, \code{(pL + pU) / 2} of patch transform for a size parameter \code{tau}.}
-\item{pR}{distance between lower and upper envelopes, \code{(pU - pL)} of patch transform for a size parameter \code{tau}.}
-\item{EpL}{lower envelope of ensemble patch transform for a size parameter \code{tau}.}
-\item{EpU}{upper envelope of ensemble patch transform for a size parameter \code{tau}.}
-\item{EpM}{mean envelope, \code{(EpL + EpU) / 2} of ensemble patch transform for a size parameter \code{tau}.}
-\item{EpR}{distance between lower and upper envelopes, \code{(EpU - EpL)} of ensemble patch transform for a size parameter \code{tau}.}
+\item{signal}{a set of data or a signal observed at time \code{tindex}.}
+\item{pstat}{centrality of patch transform for size parameter \code{tau}.}
+\item{Epstat}{centrality of ensemble patch transform for size parameter \code{tau}.}
+\item{psd}{standard deviation of patch transform for size parameter \code{tau}.}
+\item{Epsd}{standard deviation of ensemble patch transform for size parameter \code{tau}.}
+\item{pL}{lower envelope of patch transform for size parameter \code{tau}.}
+\item{pU}{upper envelope of patch transform for size parameter \code{tau}.}
+\item{pM}{mean envelope, \code{(pL + pU) / 2}, of patch transform for size parameter \code{tau}.}
+\item{pR}{distance between lower and upper envelopes, \code{(pU - pL)}, of patch transform for size parameter \code{tau}.}
+\item{EpL}{lower envelope of ensemble patch transform for size parameter \code{tau}.}
+\item{EpU}{upper envelope of ensemble patch transform for size parameter \code{tau}.}
+\item{EpM}{mean envelope, \code{(EpL + EpU) / 2}, of ensemble patch transform for size parameter \code{tau}.}
+\item{EpR}{distance between lower and upper envelopes, \code{(EpU - EpL)}, of ensemble patch transform for size parameter \code{tau}.}
 \item{parameters}{a list of input parameters of \code{type}, \code{tau}, \code{process}, \code{pquantile}, \code{equantile}, \code{gamma}, and \code{boundary}.}
 \item{nlevel}{the number of size parameter \code{tau}. For \code{eptransf()} function, \code{nlevel} is 1.}
 }
@@ -80,7 +80,7 @@ for (i in 1:length(taus))
     
 for (i in 1:length(taus)) {
     plot(out[[i]]$Epstat, type="l", xlab="", ylab="",
-        main=paste0("ensemble average of mean, tau=", taus[i]))
+        main=paste0("ensemble average of patch mean, tau=", taus[i]))
     abline(h=0, lty=3)   
 }
 

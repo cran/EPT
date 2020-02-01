@@ -1,17 +1,17 @@
 \name{localextrema}
 \alias{localextrema}
-\title{Finding Local Extrema and Zero-crossings}
+\title{Finding Local Extrema and Zero-crossings of a Signal}
 \description{
-This function identifies local extrema and zero-crossings.
+This function identifies local extrema and zero-crossings of a signal.
 }
 \usage{
 localextrema(y)
 }
 \arguments{
-\item{y}{vector of input signal.}
+\item{y}{a set of data or a signal.}
 }
 \details{
-This function identifies local extrema and zero-crossings.
+This function identifies local extrema and zero-crossings of a signal.
 }
 \value{ 
 \item{minindex}{matrix of time index at which local minima are attained. 

@@ -19,7 +19,7 @@ A daraframe of Date, Seoul, Daegu and Busan.
 data(SolarRadiation)
 names(SolarRadiation)
 
-# EPT 
+# ensemble patch transform
 SolarRadiationEpU <- SolarRadiationEpL <- NULL
 
 for(j in 1:3) {
@@ -29,10 +29,10 @@ for(j in 1:3) {
     SolarRadiationEpL <- cbind(SolarRadiationEpL, tmp$EpL)
 }
 
-# Correlation 
+# Correlation of the solar radiations at Seoul, Daegu, and Busan
 cor(SolarRadiation[, 2:4])
 
-# Correlation 
+# Correlation of ensemble average of upper envelope
 cor(SolarRadiationEpU)
 
 op <- par(mfrow=c(3,1), mar=c(2,2,2,2))

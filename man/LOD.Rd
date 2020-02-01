@@ -73,7 +73,7 @@ plot(LODdecom2$FC, type='l', main="frequency component with one month period",
 plot(LODdecom2$residue, type='l', main="remaining component", xlab="", ylab="",
     ylim=range(xt))
 
-### Decomposition
+### Decomposition Result
 ttt <- paste(LOD$YEAR, LOD$MONTH, LOD$DATE, sep="/")
 ttt <- ttt[LOD$YEAR >= 1981 & LOD$YEAR <= 2000]
 ttt <- as.Date(ttt)

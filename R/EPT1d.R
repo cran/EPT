@@ -81,7 +81,7 @@ eptdecomp <- function(tindex=NULL, signal, type="rectangle", tau, process=c("ave
     }
     
     if (any(process[1] == c("average", "median"))) {
-        pquantile <- equantile <- NULL 
+        pquantile <- equantile <- gamma <- NULL 
     } else if (process[1] == "envelope") {
         if (process[2] != "envelope") equantile <- NULL
     }
@@ -253,7 +253,8 @@ eptransf <- function(tindex=NULL, signal, type="rectangle", tau, process=c("aver
     if (type == "rectangle") {
         envelopeweight <- gamma * tau0/2 * rep(1, length(k))
     } else if (type == "oval") {
-        envelopeweight <- gamma * sqrt(tau0^2/4 - c(seq(-tau0/2, 0, length=-k[1]+1), seq(0, tau0/2, length=k[tau0+1]+1)[-1])^2) #gamma * sqrt(tau^2/4 - k^2)  
+        envelopeweight <- gamma * sqrt(tau0^2/4 - (k + (tau0 %% 2) / 2)^2)  
+        #sqrt(tau0^2/4 - c(seq(-tau0/2, 0, length=-k[1]+1), seq(0, tau0/2, length=k[tau0+1]+1)[-1])^2) #gamma * sqrt(tau0^2/4 - k^2)  
     }        
     
     if (startindex > 1) {

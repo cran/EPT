@@ -1,6 +1,6 @@
 \name{eptmap}
 \alias{eptmap}
-\title{Multiscale Visualization of Ensemble Patch Transform}
+\title{Multiscale Visualization of Ensemble Patch Transform of a Signal}
 \description{
 This function displays time-scale representation of ensemble patch transform of a signal for a sequence of size parameters.  
 }
@@ -56,10 +56,14 @@ eptmap(try1, maptype="D", stat="psd", main="standard deviation of patch transfor
 eptmap(try1, maptype="C", stat="Epstat", main="centrality of ensemble patch transform")
 eptmap(try1, maptype="D", stat="Epsd", main="standard deviation of ensemble patch transform")
 
-eptmap(try1, maptype="DC", stat="Epstat", der="time", main="derivative of centrality w.r.t time")
-eptmap(try1, maptype="DC", stat="Epstat", der="tau", main="derivative of centrality w.r.t tau")
-eptmap(try1, maptype="DD", stat="Epsd", der="time")
-eptmap(try1, maptype="DD", stat="Epsd", der="tau", ncolor=70)
+eptmap(try1, maptype="DC", stat="Epstat", der="time", 
+    main="derivative of centrality w.r.t time")
+eptmap(try1, maptype="DC", stat="Epstat", der="tau", 
+    main="derivative of centrality w.r.t tau")
+eptmap(try1, maptype="DD", stat="Epsd", der="time", 
+    main="derivative of standard deviation w.r.t time")
+eptmap(try1, maptype="DD", stat="Epsd", der="tau", 
+    main="derivative of standard deviation w.r.t tau", ncolor=70)
 
 # try2 : Multiscale EPT by envelope patch transform and average ensemble transform 
 try2 <- meptransf(tindex=tindex, signal=fnoise, taus=taus, process=c("envelope", "average"),
@@ -67,8 +71,10 @@ try2 <- meptransf(tindex=tindex, signal=fnoise, taus=taus, process=c("envelope",
 
 eptmap(try2, maptype="C", stat="pM", main="mean envelope of patch transform")
 eptmap(try2, maptype="C", stat="EpM", main="mean envelope of ensemble patch transform")
-eptmap(try2, maptype="DC", stat="EpM", der="time", main="derivative of mean envelope w.r.t time")
-eptmap(try2, maptype="DC", stat="EpM", der="tau", main="derivative of mean envelope w.r.t time")
+eptmap(try2, maptype="DC", stat="EpM", der="time", 
+    main="derivative of mean envelope w.r.t time")
+eptmap(try2, maptype="DC", stat="EpM", der="tau", 
+    main="derivative of mean envelope w.r.t time")
 }
 par(op)
 }
