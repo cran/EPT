@@ -3,8 +3,8 @@
 \alias{LOD}
 \title{Length of Day Data}
 \description{
-The length-of-day dataset \code{comb2000_daily.eop} is available in the ftp site \cr
-\code{ftp://euler.jpl.nasa.gov/keof/combinations/2000/}. The length-of-day (LOD) data was analyzed in Huang et al. (2003).
+The length-of-day was produced by Gross (2001) from 20 January 1962 to 6 January 2001.
+The length-of-day (LOD) data was analyzed in Huang et al. (2003).
 }
 \usage{
 data(LOD)
@@ -13,7 +13,10 @@ data(LOD)
 A list of LOD, YEAR, MONTH and DATE 
 }
 \references{
-Huang, N.~E., Wu, M.~C., Long, S.~R., Shen, S., Qu, W., Gloerson, P. and Fan, K.~L. (2003)  
+Gross, R. S. (2001) Combinations of Earth orientation measurements: SPACE2000, COMB2000,
+and POLE2000. JPL Publication 01-2. Jet Propulsion Laboratory, Pasadena, CA.
+
+Huang, N. E., Wu, M. C., Long, S. R., Shen, S., Qu, W., Gloerson, P. and Fan, K. L. (2003)  
 A confidence limit for the empirical mode decomposition and Hilbert spectral analysis. 
 \emph{Proceedings of the Royal Society London A.}, \bold{459}, 2317--2345. 
 }

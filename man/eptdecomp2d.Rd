@@ -68,7 +68,7 @@ image(coscomp2, xlab="", ylab="", col=gray(0:100/100), axes=FALSE, main="low-fre
 outcossift <- eptdecomp2d(z=cosmeanf, tau=8)
 
 #### Decomposition Result
-par(mfrow=c(2,2), mar=c(2,2,2,1))
+op <- par(mfrow=c(2,2), mar=c(2,2,2,1))
 image(outcossift$FC, xlab="", ylab="", col=gray(0:100/100), axes=FALSE, main="Decomposed HF")
 persp(outcossift$FC, theta = -30, phi = 45, col = "white", xlab="X", ylab="Y", main="Decomposed HF")
 image(outcossift$residue, xlab="", ylab="", col=gray(0:100/100), axes=FALSE, main="Residue")
